@@ -63,6 +63,8 @@ plot_benchmark = False
 
 def trans(x):
     return np.exp(x)/(np.exp(x)+1)
+def transderi(x):
+    return np.exp(x)/(np.exp(x)+1)**2
 def read_csv(name):
     h1 = pd.DataFrame(npz[name])
     h1.index = trans(np.linspace(-llim,llim,lgrid))
@@ -110,6 +112,23 @@ fig.tight_layout()
 fig.savefig(figname+'/gR.png', dpi = 400)
 plt.close()
 
+
+fig, ax = plt.subplots(1,1,figsize = (4,4))
+g_R = g.sum(axis=1)*0.01
+g_Rc = g_R/transderi(np.linspace(-llim,llim,lgrid))
+sns.lineplot(data = g_Rc,label = r"$g_R$")
+if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
+    g_Rb = gb.sum(axis=1)*0.01
+    g_Rb = (g_Rb*rscale).iloc[1:]/newinterval
+    sns.lineplot(data = g_Rb,label = r"$g_R, \rho =1$", ls = '--')
+
+ax.set_ylim([0.0,4.0])
+ax.set_ylabel(r'$g_R$')
+ax.set_xlabel(r'$R$')
+ax.set_title(r'R density (change of variable), '+ '$\gamma=$'+str(gamma)+', '+'$\\rho$ ='+str(rho))
+fig.tight_layout()
+fig.savefig(figname+'/gRc.png', dpi = 400)
+plt.close()
 
 gl = pd.DataFrame(npz['g'])
 gl.index = np.linspace(-llim,llim,lgrid)
