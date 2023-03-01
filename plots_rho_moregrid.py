@@ -50,7 +50,6 @@ elif symmetric_returns == 0:
 filename_ell = "./output/"+dataname+"/gamma_"+str(gamma)+"_rho_"+str(rho)+"/"
 npz = np.load(filename_ell + filename)
 
-benchmark = np.load('./output/azt_-0005_ell_ex_0143_model_sym_HS.npz')
 
 figname = "./figure/"+dataname+"/gamma_"+str(gamma)+"_rho_"+str(rho)+"/"
 os.makedirs(figname,exist_ok=True)
@@ -78,6 +77,7 @@ V = read_csv('V')
 g = read_csv('g')
 
 if plot_benchmark == True:
+    benchmark = np.load('./output/azt_-0005_ell_ex_0143_model_sym_HS.npz')
     def read_benchmark(name):
         h1 = pd.DataFrame(benchmark[name])
         h1.index = trans(np.linspace(-llim,llim,lgrid))
