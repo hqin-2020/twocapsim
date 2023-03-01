@@ -8,15 +8,15 @@ fractionarray=(0.0)
 
 actiontime=1
 
-julia_name="newsets_twocapitals_rhoas0.jl"
+julia_name="newsets_twocapitals_rhoeq0.jl"
 
-# rhoarray=(0.7 0.8 0.9 1.1 1.2 1.3 1.4 1.5)
-rhoarray=(1.00001)
+rhoarray=(0.7 0.8 0.9 1.1 1.2 1.3 1.4 1.5)
+# rhoarray=(1.00001)
 # gammaarray=(1.1 2.0 4.0 5.0 8.0)
 # gammaarray=(8.0)
 # gammaarray=(1.01 1.05 3.0 5.0)
-# gammaarray=(1.00001 2.0 4.0 8.0)
-gammaarray=(1.01 1.1 1.5 2.0 4.0 8.0)
+gammaarray=(1.00001 2.0 4.0 8.0)
+# gammaarray=(1.01 1.1 1.5 2.0 4.0 8.0)
 # gammaarray=(4.1 4.3 4.5 5.0 6.0)
 # gammaarray=(4.6 4.7 4.8 4.9)
 
@@ -29,7 +29,7 @@ for Delta in ${Deltaarray[@]}; do
                     # action_name="TwoCapital_julia_rhoeq_more_test"
                     # action_name="TwoCapital_julia_rhoeq_more_grids_gamma_56"
                     action_name="TwoCapital_julia_rhoeq_standard_grids0"
-                    action_name="TwoCapital_julia_rhoas_standard_grids0"
+                    # action_name="TwoCapital_julia_rhoas_standard_grids0"
 
                     dataname="${action_name}_${Delta}_frac_${fraction}"
 
