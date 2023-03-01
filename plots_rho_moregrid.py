@@ -117,11 +117,6 @@ fig, ax = plt.subplots(1,1,figsize = (4,4))
 g_R = g.sum(axis=1)*0.01
 g_Rc = g_R/transderi(np.linspace(-llim,llim,lgrid))
 sns.lineplot(data = g_Rc,label = r"$g_R$")
-if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
-    g_Rb = gb.sum(axis=1)*0.01
-    g_Rb = (g_Rb*rscale).iloc[1:]/newinterval
-    sns.lineplot(data = g_Rb,label = r"$g_R, \rho =1$", ls = '--')
-
 ax.set_ylim([0.0,4.0])
 ax.set_ylabel(r'$g_R$')
 ax.set_xlabel(r'$R$')
