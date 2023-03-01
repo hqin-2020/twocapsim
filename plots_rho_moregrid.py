@@ -54,7 +54,7 @@ npz = np.load(filename_ell + filename)
 figname = "./figure/"+dataname+"/gamma_"+str(gamma)+"_rho_"+str(rho)+"/"
 os.makedirs(figname,exist_ok=True)
 
-lscale = 1.4
+lscale = 1.0
 llim = 18*lscale
 lgrid = int(1000*lscale+1)
 rscale = llim*2/(lgrid-1)

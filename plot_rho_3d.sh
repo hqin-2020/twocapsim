@@ -15,6 +15,7 @@ rhoarray=(1.00001)
 # gammaarray=(1.01 1.1 1.25 1.5 2.0 4.0 8.0)
 # gammaarray=(4.1 4.3 4.5 5.0 6.0)
 # gammaarray=(4.6 4.7 4.8 4.9)
+gammaarray=(1.1 2.0 4.0 5.0 8.0)
 
 for Delta in ${Deltaarray[@]}; do
     for fraction in "${fractionarray[@]}"; do
@@ -24,6 +25,7 @@ for Delta in ${Deltaarray[@]}; do
 
                     action_name="TwoCapital_julia_rhoeq_required_test_more_grid4"
                     action_name="TwoCapital_julia_rhoeq_more_grids_gamma_56"
+                    action_name="TwoCapital_julia_rhoeq_standard_grids0"
 
                     dataname="${action_name}_${Delta}_frac_${fraction}"
 
