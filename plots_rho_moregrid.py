@@ -191,7 +191,7 @@ fig, ax = plt.subplots(1,1,figsize = (4,4))
 sns.lineplot(data = V[0],label = r"$V$")
 if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
     sns.lineplot(data = Vb[0],label = r"$V, \rho =1$", ls = '--')
-ax.set_ylim([-12.0,-3.0])
+ax.set_ylim([-12.0,-0.0])
 ax.set_ylabel(r'$V$')
 ax.set_xlabel(r'$R$')
 ax.set_title(r'V, '+ '$\gamma=$'+str(gamma)+', '+'$\\rho$'+'='+str(rho))

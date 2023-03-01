@@ -2,14 +2,14 @@
 
 # Deltaarray=(100 500 1000)
 # Deltaarray=(50 100 150 300)
-Deltaarray=(50 100 150)
+Deltaarray=(100 150)
 fractionarray=(0.0)
 
 actiontime=1
 
 python_name="plots_rho_moregrid.py"
 
-rhoarray=(0.7 0.8 0.9 1.00001 1.1 1.2 1.3 1.4 1.5)
+# rhoarray=(0.7 0.8 0.9 1.00001 1.1 1.2 1.3 1.4 1.5)
 rhoarray=(1.00001)
 # gammaarray=(8.0)
 # gammaarray=(1.01 1.1 1.25 1.5 2.0 4.0 8.0)
