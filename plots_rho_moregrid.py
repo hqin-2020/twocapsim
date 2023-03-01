@@ -56,7 +56,7 @@ os.makedirs(figname,exist_ok=True)
 
 lscale = 1.4
 llim = 18*lscale
-lgrid = 1000*lscale+1
+lgrid = int(1000*lscale+1)
 rscale = llim*2/(lgrid-1)
 print(rscale)
 plot_benchmark = False
