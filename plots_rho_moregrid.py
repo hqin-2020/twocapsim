@@ -55,12 +55,15 @@ benchmark = np.load('./output/azt_-0005_ell_ex_0143_model_sym_HS.npz')
 figname = "./figure/"+dataname+"/gamma_"+str(gamma)+"_rho_"+str(rho)+"/"
 os.makedirs(figname,exist_ok=True)
 
-llim = 18
+llim = 18*1.5
+lgrid = 1501
+plot_benchmark = False
+
 def trans(x):
     return np.exp(x)/(np.exp(x)+1)
 def read_csv(name):
     h1 = pd.DataFrame(npz[name])
-    h1.index = trans(np.linspace(-llim,llim,1001))
+    h1.index = trans(np.linspace(-llim,llim,lgrid))
     h1.columns = np.linspace(-1,1,201)
     return h1
 d1 = read_csv('d1')
@@ -71,24 +74,25 @@ hz = read_csv('hz')
 V = read_csv('V')
 g = read_csv('g')
 
-def read_benchmark(name):
-    h1 = pd.DataFrame(benchmark[name])
-    h1.index = trans(np.linspace(-llim,llim,1001))
-    h1.columns = np.linspace(-1,1,201)
-    return h1
-d1b = read_benchmark('d1')
-d2b = read_benchmark('d2')
-h1b = read_benchmark('h1')
-h2b = read_benchmark('h2')
-hzb = read_benchmark('hz')
-Vb = read_benchmark('V')
-gb = read_benchmark('g')
+if plot_benchmark == True:
+    def read_benchmark(name):
+        h1 = pd.DataFrame(benchmark[name])
+        h1.index = trans(np.linspace(-llim,llim,lgrid))
+        h1.columns = np.linspace(-1,1,201)
+        return h1
+    d1b = read_benchmark('d1')
+    d2b = read_benchmark('d2')
+    h1b = read_benchmark('h1')
+    h2b = read_benchmark('h2')
+    hzb = read_benchmark('hz')
+    Vb = read_benchmark('V')
+    gb = read_benchmark('g')
 
 
 fig, ax = plt.subplots(1,1,figsize = (4,4))
 g_R = g.sum(axis=1)*0.01
 
-newinterval = trans(np.linspace(-llim,llim,1001))[1:] - trans(np.linspace(-llim,llim,1001))[:-1]
+newinterval = trans(np.linspace(-llim,llim,lgrid))[1:] - trans(np.linspace(-llim,llim,lgrid))[:-1]
 g_R = (g_R*0.036).iloc[1:]/newinterval
 sns.lineplot(data = g_R,label = r"$g_R$")
 if rho<1.01 and rho > 0.99 and gamma == 8.0:
