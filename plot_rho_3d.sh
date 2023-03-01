@@ -1,7 +1,8 @@
 #! /bin/bash
 
 # Deltaarray=(100 500 1000)
-Deltaarray=(50 100 150 300)
+# Deltaarray=(50 100 150 300)
+Deltaarray=(50 100 150)
 fractionarray=(0.0)
 
 actiontime=1
@@ -12,7 +13,8 @@ rhoarray=(0.7 0.8 0.9 1.00001 1.1 1.2 1.3 1.4 1.5)
 rhoarray=(1.00001)
 # gammaarray=(8.0)
 # gammaarray=(1.01 1.1 1.25 1.5 2.0 4.0 8.0)
-gammaarray=(4.1 4.3 4.5 5.0 6.0)
+# gammaarray=(4.1 4.3 4.5 5.0 6.0)
+gammaarray=(4.6 4.7 4.8 4.9)
 
 for Delta in ${Deltaarray[@]}; do
     for fraction in "${fractionarray[@]}"; do
