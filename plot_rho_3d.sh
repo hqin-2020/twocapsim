@@ -2,7 +2,7 @@
 
 # Deltaarray=(100 500 1000)
 # Deltaarray=(50 100 150 300)
-Deltaarray=(100 150 300)
+Deltaarray=(50 100 150)
 fractionarray=(0.0)
 
 actiontime=1
@@ -26,6 +26,7 @@ for Delta in ${Deltaarray[@]}; do
                     action_name="TwoCapital_julia_rhoeq_required_test_more_grid4"
                     action_name="TwoCapital_julia_rhoeq_more_grids_gamma_56"
                     action_name="TwoCapital_julia_rhoeq_standard_grids0"
+                    # action_name="TwoCapital_julia_rhoeq_standard_grids_as"
 
                     dataname="${action_name}_${Delta}_frac_${fraction}"
 
