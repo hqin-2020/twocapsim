@@ -29,6 +29,7 @@ for Delta in ${Deltaarray[@]}; do
                     # action_name="TwoCapital_julia_rhoeq_more_test"
                     # action_name="TwoCapital_julia_rhoeq_more_grids_gamma_56"
                     action_name="TwoCapital_julia_rhoeq_standard_grids0"
+                    action_name="TwoCapital_julia_rhoas_standard_grids0"
 
                     dataname="${action_name}_${Delta}_frac_${fraction}"
 
