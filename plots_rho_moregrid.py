@@ -95,7 +95,7 @@ g_R = g.sum(axis=1)*0.01
 newinterval = trans(np.linspace(-llim,llim,lgrid))[1:] - trans(np.linspace(-llim,llim,lgrid))[:-1]
 g_R = (g_R*0.036).iloc[1:]/newinterval
 sns.lineplot(data = g_R,label = r"$g_R$")
-if rho<1.01 and rho > 0.99 and gamma == 8.0:
+if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
     g_Rb = gb.sum(axis=1)*0.01
     g_Rb = (g_Rb*0.036).iloc[1:]/newinterval
     sns.lineplot(data = g_Rb,label = r"$g_R, \rho =1$", ls = '--')
@@ -120,7 +120,7 @@ fig, ax = plt.subplots(1,1,figsize = (4,4))
 g_l = gl.sum(axis=1)*0.01
 g_lb = glb.sum(axis=1)*0.01
 sns.lineplot(data = g_l,label = r"$g_l$")
-if rho<1.01 and rho > 0.99 and gamma == 8.0:
+if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
     sns.lineplot(data = g_lb,label = r"$g_l, \rho =1$", ls = '--')
 ax.set_ylim([0.0,0.5])
 ax.set_ylabel(r'$g_l$')
@@ -135,7 +135,7 @@ fig, ax = plt.subplots(1,1,figsize = (4,4))
 g_Z = g.sum(axis=0)*0.036
 g_Zb = gb.sum(axis=0)*0.036
 sns.lineplot(data = g_Z,label = r"$g_Z$")
-if rho<1.01 and rho > 0.99 and gamma == 8.0:
+if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
     sns.lineplot(data = g_Zb,label = r"$g_Z, \rho =1$", ls = '--')
 ax.set_ylim([0.0,3.0])
 ax.set_ylabel(r'$g_Z$')
@@ -160,7 +160,7 @@ plt.close()
 fig, ax = plt.subplots(1,1,figsize = (4,4))
 sns.lineplot(data = d1[0],label = r"$d_1$")
 sns.lineplot(data = d2[0],label = r"$d_2$")
-if rho<1.01 and rho > 0.99 and gamma == 8.0:
+if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
     sns.lineplot(data = d1b[0],label = r"$d_1, \rho =1$", ls = '--')
     sns.lineplot(data = d2b[0],label = r"$d_2, \rho =1$", ls = '--')
 ax.set_ylim([0.027,0.037])
@@ -174,7 +174,7 @@ plt.close()
 
 fig, ax = plt.subplots(1,1,figsize = (4,4))
 sns.lineplot(data = V[0],label = r"$V$")
-if rho<1.01 and rho > 0.99 and gamma == 8.0:
+if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
     sns.lineplot(data = Vb[0],label = r"$V, \rho =1$", ls = '--')
 ax.set_ylim([-12.0,-3.0])
 ax.set_ylabel(r'$V$')
