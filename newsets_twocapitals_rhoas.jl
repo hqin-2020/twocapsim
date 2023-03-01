@@ -257,8 +257,8 @@ if compute_irfs == 1
     zmin = -zmax;
 elseif compute_irfs == 0
     II, JJ = 1001, 201;
-    II, JJ = 1401, 201;
-    rmax =  1.4*18.;
+    # II, JJ = 1401, 201;
+    rmax =  18.;
     rmin = -rmax       #-25.; #-rmax;
     zmax = 1.;
     zmin = -zmax;
