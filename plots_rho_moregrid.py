@@ -26,7 +26,7 @@ gamma = args.gamma
 rho = args.rho
 dataname = args.dataname
 
-symmetric_returns    = 0
+symmetric_returns    = 1
 state_dependent_xi   = 0
 optimize_over_ell    = 0
 compute_irfs         = 0                    # need to start julia with "-p 5"

@@ -2,7 +2,8 @@
 
 # Deltaarray=(100 500 1000)
 # Deltaarray=(50 100 150 300)
-Deltaarray=(100 150)
+# Deltaarray=(100 150)
+Deltaarray=(5 50 100 150 300)
 fractionarray=(0.0)
 
 actiontime=1
