@@ -813,6 +813,9 @@ function value_function_twocapitals(ell::Float64,
       dz = (zmax - zmin)/(JJ-1);
       dr2, dz2, drdz = dr*dr, dz*dz, dr*dz;
 
+      println("rmax = ", rmax, ", rmin = ",rmin, ", rlength = ", II)
+      println("zmax = ", zmax, ", zmin = ",zmin, ", zlength = ", JJ)
+
       rr = r * ones(1, JJ);
       zz = ones(II, 1) * z;
       pii = exp.(rr)./(1 .+ exp.(rr));
