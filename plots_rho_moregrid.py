@@ -55,8 +55,11 @@ benchmark = np.load('./output/azt_-0005_ell_ex_0143_model_sym_HS.npz')
 figname = "./figure/"+dataname+"/gamma_"+str(gamma)+"_rho_"+str(rho)+"/"
 os.makedirs(figname,exist_ok=True)
 
-llim = 18*1.5
-lgrid = 1501
+lscale = 1.5
+llim = 18*lscale
+lgrid = 1000*lscale+1
+rscale = llim*2/(lgrid-1)
+print(rscale)
 plot_benchmark = False
 
 def trans(x):
@@ -91,13 +94,12 @@ if plot_benchmark == True:
 
 fig, ax = plt.subplots(1,1,figsize = (4,4))
 g_R = g.sum(axis=1)*0.01
-
 newinterval = trans(np.linspace(-llim,llim,lgrid))[1:] - trans(np.linspace(-llim,llim,lgrid))[:-1]
-g_R = (g_R*0.036).iloc[1:]/newinterval
+g_R = (g_R*rscale).iloc[1:]/newinterval
 sns.lineplot(data = g_R,label = r"$g_R$")
 if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
     g_Rb = gb.sum(axis=1)*0.01
-    g_Rb = (g_Rb*0.036).iloc[1:]/newinterval
+    g_Rb = (g_Rb*rscale).iloc[1:]/newinterval
     sns.lineplot(data = g_Rb,label = r"$g_R, \rho =1$", ls = '--')
 
 ax.set_ylim([0.0,4.0])
@@ -110,17 +112,16 @@ plt.close()
 
 
 gl = pd.DataFrame(npz['g'])
-gl.index = np.linspace(-llim,llim,1001)
+gl.index = np.linspace(-llim,llim,lgrid)
 gl.columns = np.linspace(-1,1,201)
-glb = pd.DataFrame(benchmark['g'])
-glb.index = np.linspace(-llim,llim,1001)
-glb.columns = np.linspace(-1,1,201)
-
 fig, ax = plt.subplots(1,1,figsize = (4,4))
 g_l = gl.sum(axis=1)*0.01
-g_lb = glb.sum(axis=1)*0.01
 sns.lineplot(data = g_l,label = r"$g_l$")
 if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
+    glb = pd.DataFrame(benchmark['g'])
+    glb.index = np.linspace(-llim,llim,lgrid)
+    glb.columns = np.linspace(-1,1,201)
+    g_lb = glb.sum(axis=1)*0.01
     sns.lineplot(data = g_lb,label = r"$g_l, \rho =1$", ls = '--')
 ax.set_ylim([0.0,0.5])
 ax.set_ylabel(r'$g_l$')
@@ -132,10 +133,10 @@ plt.close()
 
 
 fig, ax = plt.subplots(1,1,figsize = (4,4))
-g_Z = g.sum(axis=0)*0.036
-g_Zb = gb.sum(axis=0)*0.036
+g_Z = g.sum(axis=0)*rscale
 sns.lineplot(data = g_Z,label = r"$g_Z$")
 if rho<1.01 and rho > 0.99 and gamma == 8.0 and plot_benchmark == True:
+    g_Zb = gb.sum(axis=0)*rscale
     sns.lineplot(data = g_Zb,label = r"$g_Z, \rho =1$", ls = '--')
 ax.set_ylim([0.0,3.0])
 ax.set_ylabel(r'$g_Z$')
@@ -187,7 +188,7 @@ plt.close()
 
 
 res = npz
-W1 = trans(np.linspace(-llim,llim,1001))
+W1 = trans(np.linspace(-llim,llim,lgrid))
 W2 = np.linspace(-1,1,201)
 var_name = ['Investment over Capital', 'Consumption over Capital', 'Log Value Function']
 
