@@ -12,7 +12,7 @@ julia_name="newsets_twocapitals_rhoeq0.jl"
 
 # rhoarray=(0.7 0.8 0.9 1.00001 1.1 1.2 1.3 1.4 1.5)
 rhoarray=(1.00001)
-gammaarray=(1.1 2.0 4.0 8.0)
+gammaarray=(1.1 2.0 4.0 5.0 8.0)
 # gammaarray=(1.01 1.05 3.0 5.0)
 # gammaarray=(1.00001 2.0 4.0 8.0)
 # gammaarray=(1.01 1.1 1.25 1.5 2.0 4.0 8.0)
